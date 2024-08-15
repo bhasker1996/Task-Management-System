@@ -5,3 +5,4 @@
     2) If you have signedUp/register then login with username and password using authcontroller in swagger documentation then you will get the token.
     3) Copy that token and then check the APIs.
 4. I generally didn't made any assumptions so far.
+5. Mainly please download the Intellij to run the Application.
