@@ -1,5 +1,7 @@
 package org.example.taskmanagementsystem.Controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.example.taskmanagementsystem.DTOs.JWTAuthResponse;
 import org.example.taskmanagementsystem.DTOs.UserDTO;
 import org.example.taskmanagementsystem.Services.AuthService.AuthService;
@@ -21,12 +23,31 @@ public class AuthController {
         this.userService = userService;
     }
 
+    @Operation(
+            summary = "Register REST API",
+            description = "Register REST API is used to SignUp as a user "
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 Success"
+
+    )
     @PostMapping("/register")
       public ResponseEntity Register(@RequestBody UserDTO userDTO)
       {
           return ResponseEntity.ok(userService.signUp(userDTO.getUsername(), userDTO.getPassword()));
       }
 
+
+    @Operation(
+            summary = "Login REST API",
+            description = "Login REST API is used to SignIn as a user "
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 Success"
+
+    )
       @PostMapping("/login")
       public ResponseEntity Login(@RequestBody UserDTO userDTO) {
 
